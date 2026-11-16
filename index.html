@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Professional portfolio of an astrophysicist working on exoplanet detection, high-resolution spectroscopy and scientific data analysis.">
+  <title>Pierre Larue — Astrophysics & Exoplanets</title>
+  <style>
+    :root{
+      --bg:#080d19; --panel:#101a2c; --panel2:#142238; --ink:#edf3ff;
+      --muted:#a8b6ce; --line:rgba(190,211,245,.15); --accent:#8bd7ff;
+      --accent2:#b9a6ff; --warm:#f0c78b; --max:1160px;
+      --sans:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(ellipse at 75% -10%,rgba(94,120,190,.2),transparent 38%),var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    a:hover{color:var(--accent)}
+    .wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+    .nav{position:sticky;top:0;z-index:10;background:rgba(8,13,25,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-weight:750;letter-spacing:.02em}.brand span{color:var(--accent)}
+    .links{display:flex;gap:25px;align-items:center;font-size:.88rem;color:var(--muted)}
+    .lang{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:99px;padding:8px 12px;cursor:pointer;font:inherit}
+    .hero{min-height:660px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:54px;padding:92px 0 82px}
+    .eyebrow{color:var(--accent);font-size:.76rem;font-weight:750;letter-spacing:.19em;text-transform:uppercase}
+    h1{font-size:clamp(3.2rem,7vw,6.2rem);line-height:.98;letter-spacing:-.065em;margin:20px 0 24px;max-width:760px}
+    h1 em{font-style:normal;color:var(--accent)}
+    .lead{font-size:1.15rem;line-height:1.8;color:#c3cee0;max-width:650px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:6px;font-weight:700;font-size:.9rem;border:1px solid var(--line)}
+    .btn.primary{background:var(--accent);color:#07111d;border-color:var(--accent)}
+    .btn:hover{transform:translateY(-2px);transition:.2s}
+    .hero-art{position:relative;min-height:440px;display:grid;place-items:center}
+
+
+    /* =========================================
+    HERO LAYOUT
+    ========================================= */
+
+    .hero {
+        min-height: 660px;
+        display: grid;
+        grid-template-columns: 1.55fr .85fr;
+        align-items: center;
+        gap: 35px;
+        padding: 92px 0 82px;
+    }
+
+    /* Left content */
+
+    .hero-content {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Photo + title */
+
+    .hero-heading {
+        display: grid;
+        grid-template-columns: 210px minmax(0, 1fr);
+        align-items: center;
+        gap: 30px;
+    }
+
+    .profile-photo {
+        width: 210px;
+        height: 270px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        box-shadow: 0 15px 40px rgba(0,0,0,.25);
+    }
+
+    .hero-title {
+        min-width: 0;
+    }
+
+    .eyebrow {
+        color: var(--accent);
+        font-size: .76rem;
+        font-weight: 750;
+        letter-spacing: .19em;
+        text-transform: uppercase;
+    }
+
+    h1 {
+        font-size: clamp(3rem, 5.2vw, 5.5rem);
+        line-height: .98;
+        letter-spacing: -.065em;
+        margin: 35px 0 0;
+        max-width: 760px;
+    }
+
+    h1 em {
+        font-style: normal;
+        color: var(--accent);
+    }
+
+    /* Text below photo + title */
+
+    .lead {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: #c3cee0;
+        max-width: 850px;
+        margin-top: 35px;
+    }
+
+    .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 32px;
+    }
+
+    /* Right illustration */
+
+    .hero-art {
+        position: relative;
+        min-height: 400px;
+        display: grid;
+        place-items: center;
+    }
+
+    .hero-art .orbit {
+        transform: scale(.88);
+    }
+
+    .orbit{width:min(100%,440px);aspect-ratio:1;border-radius:50%;position:relative;border:1px solid rgba(139,215,255,.24);background:radial-gradient(circle at 50% 50%,rgba(122,153,220,.15),rgba(12,22,40,.08) 48%,transparent 68%)}
+
+    /* Two circular orbital paths */
+    .orbit:before,
+    .orbit:after {
+        content:"";
+        position:absolute;
+        border:1px solid rgba(185,166,255,.25);
+        border-radius:50%;
+        transform:none;
+    }
+
+    .orbit:before {
+        inset:8%;
+    }
+
+    .orbit:after {
+        inset:25%;
+        border-color:rgba(139,215,255,.3);
+    }
+
+    /* Active red dwarf star */
+    .planet {
+        position:absolute;
+        width:108px;
+        height:108px;
+        border-radius:50%;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+
+        background:radial-gradient(
+            circle at 30% 28%,
+            #ffc09a,
+            #e47c59 35%,
+            #bd5145 67%,
+            #792f38 100%
+        );
+        box-shadow:0 0 65px rgba(220,85,65,.3);
+    }
+
+    /* Three planets */
+    .moon {
+        position:absolute;
+        width:13px;
+        height:13px;
+        border-radius:50%;
+        left:50%;
+        transform:translateX(-50%);
+        box-shadow:0 0 15px rgba(139,215,255,.3);
+    }
+
+    /* Outer orbit — upper right */
+    .moon.m1 {
+        top:14%;
+        left:85%;
+        transform:translate(-50%,-50%);
+        background:#b9cce8;
+    }
+
+    /* Middle orbit — upper left */
+    .moon.m2 {
+        top:21%;
+        left:20%;
+        transform:translate(-50%,-50%);
+        background:#e6cba3;
+    }
+
+    /* Inner orbit — top */
+    .moon.m3 {
+        top:70%;
+        left:65%;
+        transform:translate(-50%,-50%);
+        background:#b9a6ff;
+    }
+
+    .star{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 12px #fff}
+    .s1{top:15%;left:24%}.s2{top:76%;left:18%}.s3{top:67%;right:13%}.s4{top:35%;right:5%}.s5{bottom:8%;left:57%}
+    .art-label{position:absolute;bottom:3%;right:0;color:var(--muted);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+    section{padding:88px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}
+    .kicker{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:750}
+    h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;letter-spacing:-.045em;margin:10px 0 0}
+    .section-intro{max-width:450px;color:var(--muted);margin:0}
+    .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px}
+    .about-copy{font-size:1.08rem;color:#c4d0e2;max-width:730px}
+    .facts{display:grid;gap:12px}
+    .fact{padding:17px 18px;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+    .fact strong{display:block;color:var(--accent);font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+    .fact span{color:#dce6f5}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:linear-gradient(145deg,var(--panel),rgba(16,26,44,.65));border:1px solid var(--line);padding:25px;border-radius:9px;min-height:220px}
+    .card .number{color:var(--accent2);font-size:.76rem;letter-spacing:.12em}
+    .card h3{font-size:1.22rem;margin:15px 0 9px}
+    .card p{color:var(--muted);font-size:.94rem;margin:0}
+    .taglist{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}
+    .tag{border:1px solid var(--line);border-radius:99px;padding:7px 12px;color:#cbd7e9;font-size:.82rem}
+    .project{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;padding:28px 0;border-top:1px solid var(--line)}
+    .project:first-of-type{border-top:0}
+    .project-meta{color:var(--accent);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+    .project h3{font-size:1.45rem;margin:7px 0}
+    .project p{color:var(--muted);margin:0}
+    .timeline{border-left:1px solid rgba(139,215,255,.35);margin-left:8px;padding-left:28px}
+    .item{position:relative;padding:0 0 30px}
+    .item:before{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--accent);left:-33px;top:8px;box-shadow:0 0 0 5px var(--bg)}
+    .item time{font-size:.78rem;color:var(--accent);letter-spacing:.08em}
+    .item h3{margin:4px 0;font-size:1.15rem}
+    .item p{margin:0;color:var(--muted)}
+    .pub-note{padding:20px 22px;border:1px dashed rgba(139,215,255,.35);border-radius:8px;color:var(--muted)}
+    .contact{background:linear-gradient(120deg,rgba(139,215,255,.09),rgba(185,166,255,.07));border:1px solid var(--line);border-radius:12px;padding:42px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .contact h2{max-width:620px}
+    footer{padding:30px 0;color:#7889a4;font-size:.8rem;display:flex;justify-content:space-between;gap:20px}
+    [data-fr]{display:none}
+    body.fr [data-en]{display:none}
+    body.fr [data-fr]{display:initial}
+    @media(max-width:800px){
+      .links{gap:12px}.links a{display:none}.hero{grid-template-columns:1fr;padding-top:65px;gap:20px}.hero-art{min-height:310px}.orbit{width:300px}
+      .about-grid,.project{grid-template-columns:1fr;gap:24px}.cards{grid-template-columns:1fr 1fr}.section-head{display:block}.section-intro{margin-top:15px}
+      .contact{display:block;padding:28px}.contact .btn{margin-top:20px}
+    }
+    @media(max-width:520px){.wrap{width:min(100% - 32px,var(--max))}.nav-inner{height:62px}.cards{grid-template-columns:1fr}section{padding:65px 0}footer{display:block}.art-label{right:5%}}
+  </style>
+</head>
+
+<script>
+    const toggle = document.getElementById('langToggle');
+    toggle.addEventListener('click', () => {
+      const isFrench = document.body.classList.toggle('fr');
+      document.documentElement.lang = isFrench ? 'fr' : 'en';
+      toggle.textContent = isFrench ? 'EN' : 'FR';
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#home">PIERRE LARUE<span>.</span></a>
+      <nav class="links" aria-label="Main navigation">
+        <a href="#research"><span data-en>Research</span><span data-fr>Recherche</span></a>
+        <a href="#skills"><span data-en>Expertise</span><span data-fr>Expertise</span></a>
+        <a href="#experience"><span data-en>Experience</span><span data-fr>Parcours</span></a>
+        <a href="Publications.html"><span data-en>Publications</span><span data-fr>Publications</span></a>
+        <a href="CV.html"><span data-en>CV</span><span data-fr>CV</span></a>
+        <a href="#contact"><span data-en>Contact</span><span data-fr>Contact</span></a>
+        <button class="lang" id="langToggle" type="button" aria-label="Switch language">FR</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+        
+
+
+    <section class="hero" id="home" style="border:0">
+
+    <div class="hero-content">
+
+        <div class="hero-heading">
+        <img src="profil.jpeg" alt="Pierre Larue" class="profile-photo">
+
+        <div class="hero-title">
+            <div class="eyebrow">
+            <span data-en>Exoplanets · Stellar Activity · Radial Velocities</span>
+            <span data-fr>Exoplanètes · Activité Stellaire · Vitesses Radiales</span>
+            </div>
+
+            <h1>
+            <span data-en>Small planets <em>Active stars.</em></span>
+            <span data-fr>Petites planètes <em>Étoiles actives.</em></span>
+            </h1>
+        </div>
+        </div>
+
+        <p class="lead">
+        <span data-en>I'm an astrophysicist specialising in exoplanet detection through the radial velocity method. My research combines high-resolution optical and near-infrared spectroscopy to disentangle stellar activity from the subtle signals of small planets.</span>
+        <span data-fr>Astrophysicien spécialisé dans la détection d'exoplanètes par la méthode des vitesses radiales, mes travaux associent la spectroscopie à haute résolution en optique et dans le proche infrarouge afin de distinguer l'activité stellaire des signaux subtils émis par des exoplanètes de faible masse.</span>
+        </p>
+
+        <div class="actions">
+        <a class="btn primary" href="publications.html">
+            <span data-en>Explore my publications</span>
+            <span data-fr>Découvrir mes publications</span>
+        </a>
+        <a class="btn" href="#contact">
+            <span data-en>Get in touch ↗</span>
+            <span data-fr>Me contacter ↗</span>
+        </a>
+        </div>
+
+    </div>
+
+    <div class="hero-art" aria-label="Abstract exoplanet illustration">
+        <div class="orbit">
+        <div class="planet"></div>
+        <div class="moon m1"></div>
+        <div class="moon m2"></div>
+        <div class="moon m3"></div>
+        </div>
+    </div>
+
+    </section>
+
+
+
+      <section id="research">
+        <div class="section-head">
+          <div>
+            <div class="kicker">01 / <span data-en>Research</span><span data-fr>Recherche</span></div>
+            <h2><span data-en>Questions I work on.</span><span data-fr>Mes axes de recherche.</span></h2>
+          </div>
+          <p class="section-intro"></p>
+        </div>
+
+        <div class="project">
+          <div>
+            <div class="project-meta">
+              01 · <span data-en>Exoplanet Detection</span><span data-fr>Détection des exoplanètes</span>
+            </div>
+            <h3>High-Precision Radial Velocities</h3>
+          </div>
+          <p>
+            <span data-en>Developing high-precision radial-velocity measurements from state-of-the-art spectrographs, using physically motivated, line-by-line approaches to extract the subtle Doppler signatures of orbiting planets.</span>
+            <span data-fr>Développement de mesures de vitesse radiale de haute précision à partir de spectrographes de pointe, en utilisant des approches ligne par ligne fondées sur la physique pour extraire les subtiles signatures Doppler des planètes en orbite.</span>
+          </p>
+        </div>
+
+        <div class="project">
+          <div>
+            <div class="project-meta">
+              02 · <span data-en>Stellar Activity</span><span data-fr>Activité stellaire</span>
+            </div>
+            <h3>Active Low-Mass Stars</h3>
+          </div>
+          <p>
+            <span data-en>Investigating magnetic activity in M dwarfs through the analysis of individual spectral lines and physically informed models, to understand how stellar surface phenomena affect radial-velocity measurements.</span>
+            <span data-fr>Étude de l'activité magnétique des naines M à travers l'analyse de raies spectrales individuelles et de modèles physiques, afin de comprendre comment les phénomènes de surface stellaire affectent les mesures de vitesse radiale.</span>
+          </p>
+        </div>
+
+        <div class="project">
+          <div>
+            <div class="project-meta">
+              03 · <span data-en>Multi-Wavelength Spectroscopy</span><span data-fr>Spectroscopie multi-longueurs d'onde</span>
+            </div>
+            <h3>Chromaticity of Stellar Activity Signals</h3>
+          </div>
+          <p>
+            <span data-en>Combining optical and near-infrared radial velocities to investigate the wavelength dependence of stellar activity signals across spectral lines. This approach helps develop new activity-mitigation strategies while providing insights into the underlying stellar physics.</span>
+            <span data-fr>Combinaison de mesures de vitesse radiale dans le visible et le proche infrarouge pour étudier la dépendance en longueur d'onde des signaux d'activité stellaire à travers les différentes raies spectrales. Cette approche permet de développer de nouvelles stratégies de correction de l'activité tout en apportant un éclairage sur les processus physiques stellaires sous-jacents.</span>
+          </p>
+        </div>
+      </section>
+
+
+<section id="skills">
+  <div class="section-head">
+    <div>
+      <div class="kicker">02 / <span data-en>Expertise</span><span data-fr>Expertise</span></div>
+      <h2><span data-en>Instruments & Methods.</span><span data-fr>Instruments & Méthodes.</span></h2>
+    </div>
+    <p class="section-intro"></p>
+  </div>
+
+  <div class="cards">
+
+    <article class="card">
+      <div class="number">
+        01 / <span data-en>OBSERVATION</span><span data-fr>OBSERVATION</span>
+      </div>
+      <h3>
+        <span data-en>High-resolution spectrographs</span>
+        <span data-fr>Spectrographes haute résolution</span>
+      </h3>
+      <p>
+        <span data-en>Simultaneous optical and near-infrared observing campaigns using SOPHIE and SPIRou, HARPS and NIRPS.</span>
+        <span data-fr>Campagnes d'observation simultanées dans le visible et le proche infrarouge avec SOPHIE et SPIRou, HARPS et NIRPS.</span>
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">
+        02 / <span data-en>TOOLS</span><span data-fr>OUTILS</span>
+      </div>
+      <h3>
+        <span data-en>Radial velocity extraction</span>
+        <span data-fr>Extraction des vitesses radiales</span>
+      </h3>
+      <p>
+        <span data-en>Implementation of line-by-line (LBL) approaches and automated pipelines for high-precision radial velocity extraction.</span>
+        <span data-fr>Implémentation d'approches ligne par ligne (LBL) et automatisation de pipelines pour l'extraction de vitesses radiales de haute précision.</span>
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">
+        03 / <span data-en>MODELLING</span><span data-fr>MODÉLISATION</span>
+      </div>
+      <h3>
+        <span data-en>Stellar activity</span>
+        <span data-fr>Activité stellaire</span>
+      </h3>
+      <p>
+        <span data-en>Modelling stellar activity signals (Gaussian Processes, FENRIR), Bayesian inference (MCMC, nested sampling), and optimisation techniques (genetic algorithms). Development of new physically motivated spectral line-selection strategies.</span>
+        <span data-fr>Modélisation des signaux d'activité stellaire (processus gaussiens, FENRIR), inférence bayésienne (MCMC, échantillonnage emboîté) et techniques d'optimisation (algorithmes génétiques). Développement de nouvelles stratégies de sélection de raies spectrales fondées sur des modèles physiques.</span>
+      </p>
+    </article>
+
+  </div>
+
+  <div class="taglist">
+    <span class="tag">Python</span>
+    <span class="tag">Bash</span>
+    <span class="tag">
+      <span data-en>Optical and near-infrared spectroscopy</span>
+      <span data-fr>Spectroscopie visible et proche infrarouge</span>
+    </span>
+    <span class="tag">
+      <span data-en>Radial velocities</span>
+      <span data-fr>Vitesses radiales</span>
+    </span>
+    <span class="tag">
+      <span data-en>Gaussian Processes</span>
+      <span data-fr>Processus gaussiens</span>
+    </span>
+    <span class="tag">MCMC</span>
+    <span class="tag">
+      <span data-en>Nested Sampling</span>
+      <span data-fr>Échantillonnage emboîté</span>
+    </span>
+    <span class="tag">
+      <span data-en>Bayesian inference</span>
+      <span data-fr>Inférence bayésienne</span>
+    </span>
+    <span class="tag">
+      <span data-en>Genetic Algorithms</span>
+      <span data-fr>Algorithmes génétiques</span>
+    </span>
+    <span class="tag">LBL</span>
+    <span class="tag">FENRIR</span>
+  </div>
+</section>
+
+
+
+<style>
+
+/* =========================================
+   EXPERIENCE SECTION
+========================================= */
+
+#experience .experience-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 45px 0 0;
+    padding-left: 35px;
+}
+
+/* Main vertical timeline */
+#experience .experience-timeline {
+    position: relative;
+    isolation: isolate;
+}
+
+#experience .experience-timeline::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 5px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background: #6B91B8;
+}
+
+/* Each academic experience */
+#experience .experience-entry {
+    position: relative;
+    padding: 0 0 55px;
+}
+
+/* One dot per degree */
+#experience .experience-entry::before {
+    content: "";
+    position: absolute;
+    left: -36px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #6B91B8;
+    border: 2px solid var(--background);
+    box-sizing: content-box;
+    z-index: 1;
+}
+
+/* No extra space after the last entry */
+#experience .experience-entry:last-child {
+    padding-bottom: 0;
+}
+
+/* =========================================
+   EXPERIENCE HEADER
+========================================= */
+
+#experience .experience-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+#experience .experience-date {
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+    color: var(--muted);
+    margin-bottom: 10px;
+}
+
+#experience .experience-top h3 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 600;
+    margin: 0 0 8px;
+}
+
+#experience .experience-institution {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#experience .experience-location {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+#experience .experience-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    padding: 8px 13px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--muted);
+}
+
+/* =========================================
+   THESIS / INTERNSHIP
+========================================= */
+
+#experience .experience-thesis {
+    max-width: 750px;
+    margin: 25px 0 40px;
+    padding-left: 15px;
+    border-left: 2px solid var(--accent);
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+/* =========================================
+   PHD ACHIEVEMENTS
+========================================= */
+
+#experience .experience-achievements {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 5px;
+}
+
+#experience .achievement {
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    gap: 15px;
+    align-items: start;
+}
+
+#experience .achievement-index {
+    font-size: 0.75rem;
+    color: var(--accent);
+    padding-top: 3px;
+}
+
+#experience .achievement h4 {
+    margin: 0 0 6px;
+}
+
+#experience .achievement p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+/* =========================================
+   PUBLICATIONS LINK
+========================================= */
+
+#experience .experience-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#experience .experience-link:hover {
+    color: var(--accent);
+}
+
+#experience .link-arrow {
+    display: inline-block;
+    font-size: 0.8em;
+    margin-left: 5px;
+    color: var(--accent);
+    transition: transform 0.2s ease;
+}
+
+#experience .experience-link:hover .link-arrow {
+    transform: translate(3px, -3px);
+}
+
+
+/* FOOTER */
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px 25px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    margin-top: 60px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.footer-email {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-email:hover {
+    color: var(--ink);
+}
+
+</style>
+
+
+
+<section id="experience">
+
+    <div class="section-head">
+        <div>
+            <div class="kicker">
+                03 /
+                <span data-en>Experience</span>
+                <span data-fr>Parcours</span>
+            </div>
+
+            <h2>
+                <span data-en>Research journey.</span>
+                <span data-fr>Expérience scientifique.</span>
+            </h2>
+        </div>
+    </div>
+
+
+    <div class="experience-timeline">
+
+
+        <!-- PHD -->
+
+        <div class="experience-entry">
+
+            <div class="experience-top">
+                <div>
+                    <div class="experience-date">
+                        OCTOBER 2022 — DECEMBER 2025
+                    </div>
+
+                    <h3>PhD in Astrophysics</h3>
+
+                    <div class="experience-institution">
+                        Université Grenoble Alpes · IPAG
+                    </div>
+
+                    <div class="experience-location">
+                        Grenoble, France
+                    </div>
+                </div>
+
+                <div class="experience-label">PHD</div>
+            </div>
+
+
+            <p class="experience-thesis">
+                <span data-en>
+                    "Search for exoplanets by radial velocity around active M dwarfs:
+                    chromaticity of the stellar activity signal and mitigation strategies."
+                </span>
+
+                <span data-fr>
+                    « Recherche d'exoplanètes par vitesse radiale autour de naines M actives :
+                    chromaticité du signal d'activité stellaire et stratégies de mitigation. »
+                </span>
+            </p>
+
+
+            <div class="experience-achievements">
+
+                <div class="achievement">
+                    <div class="achievement-index">01</div>
+
+                    <div>
+                        <h4>
+                            <span data-en>Observational campaigns</span>
+                            <span data-fr>Campagnes d'observation</span>
+                        </h4>
+
+                        <p>
+                            <span data-en>
+                                France & Chile · SOPHIE, HARPS, SPIRou, NIRPS
+                            </span>
+                            <span data-fr>
+                                France & Chili · SOPHIE, HARPS, SPIRou, NIRPS
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="achievement">
+                    <div class="achievement-index">02</div>
+
+                    <div>
+                        <h4>
+                            <span data-en>Scientific research & method development</span>
+                            <span data-fr>Recherche scientifique et développement méthodologique</span>
+                        </h4>
+
+                        <p>
+                            <span data-en>
+                                Radial velocity extraction · Line-by-line analysis ·
+                                Stellar activity modelling and mitigation
+                            </span>
+                            <span data-fr>
+                                Extraction des vitesses radiales · Analyses raie par raie ·
+                                Modélisation et correction de l'activité stellaire
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="achievement">
+                    <div class="achievement-index">03</div>
+
+                    <div>
+                        <h4>
+                            <span data-en>Research collaborations</span>
+                            <span data-fr>Collaborations scientifiques</span>
+                        </h4>
+
+                        <p>ANR ORVET · PEPR Origins - Origin of Life</p>
+                    </div>
+                </div>
+
+
+                <div class="achievement">
+                    <div class="achievement-index">04</div>
+
+                    <div>
+                        <h4>
+                            <a href="Publications.html" class="experience-link">
+                                <span data-en>Scientific publications</span>
+                                <span data-fr>Publications scientifiques</span>
+                                <span class="link-arrow">↗</span>
+                            </a>
+                        </h4>
+
+                        <p>
+                            <span data-en>
+                                First-author and co-authored peer-reviewed papers
+                            </span>
+                            <span data-fr>
+                                Publications scientifiques en premier auteur et en collaboration
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- MASTER 2 -->
+
+        <div class="experience-entry">
+
+            <div class="experience-top">
+                <div>
+                    <div class="experience-date">
+                        SEPTEMBER 2021 — JULY 2022
+                    </div>
+
+                    <h3>
+                        <span data-en>MSc in Astrophysics</span>
+                        <span data-fr>Master 2 Astrophysique</span>
+                    </h3>
+
+                    <div class="experience-institution">
+                        Université Grenoble Alpes
+                    </div>
+
+                    <div class="experience-location">
+                        Grenoble, France
+                    </div>
+                </div>
+
+                <div class="experience-label">M2</div>
+            </div>
+
+            <p class="experience-thesis">
+                <span data-en>Research internship on gravitational waves astronomy with the Einstein Telescope - LAPP, Annecy</span>
+                <span data-fr>Stage de recherche sur les ondes gravitationnelles avec le Einstein Telescope - LAPP, Annecy</span>
+            </p>
+
+        </div>
+
+
+        <!-- MASTER 1 -->
+
+        <div class="experience-entry">
+
+            <div class="experience-top">
+                <div>
+                    <div class="experience-date">
+                        SEPTEMBER 2020 — JULY 2021
+                    </div>
+
+                    <h3>
+                        <span data-en>MSc in Fundamental Research</span>
+                        <span data-fr>Master 1 Recherche Fondamentale</span>
+                    </h3>
+
+                    <div class="experience-institution">
+                        Université Grenoble Alpes
+                    </div>
+
+                    <div class="experience-location">
+                        Grenoble, France
+                    </div>
+                </div>
+
+                <div class="experience-label">M1</div>
+            </div>
+
+            <p class="experience-thesis">
+                <span data-en>Research internship on ultra-cold neutrons (Mirror world theory) - LPSC & ILL, Grenoble</span>
+                <span data-fr>Stage de recherche sur les neutrons ultra-froids (théorie du monde miroir) - LPSC & ILL, Grenoble</span>
+            </p>
+
+        </div>
+
+
+    </div>
+</section>
+
+
+<footer class="wrap" id="contact">
+
+    <span>© <span id="year"></span> Pierre LARUE</span>
+
+    <a href="mailto:pierrelarue.contact@gmail.com" class="footer-email">
+        pierrelarue.contact@gmail.com
+    </a>
+
+    <span>
+        <span data-en>Exoplanets · Stellar Activity · Radial Velocities</span>
+        <span data-fr>Exoplanètes · Activité Stellaire · Vitesses Radiales</span>
+    </span>
+</footer>
+
+</body>
+</html>

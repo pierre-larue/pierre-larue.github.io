@@ -1,0 +1,1123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curriculum Vitae of Pierre Larue — Astrophysics, exoplanets, stellar activity and radial velocities.">
+  <title>CV | Pierre Larue</title>
+
+  <style>
+    :root {
+      --bg: #080d19;
+      --panel: #101a2c;
+      --ink: #edf3ff;
+      --muted: #a8b6ce;
+      --line: rgba(190, 211, 245, .15);
+      --accent: #8bd7ff;
+      --accent2: #b9a6ff;
+      --warm: #f0c78b;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 15% 0%, rgba(69, 112, 164, .13), transparent 36rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 13, 25, .88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: .98rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      white-space: nowrap;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 26px;
+    }
+
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .88rem;
+      transition: color .2s ease;
+    }
+
+    .links a:hover,
+    .links a.active { color: var(--accent); }
+
+    .lang {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font: inherit;
+      font-size: .78rem;
+      cursor: pointer;
+    }
+
+    /* INTRO */
+
+    .page-intro {
+      padding: 80px 0 48px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 850px;
+      font-size: clamp(2.5rem, 6vw, 4.6rem);
+      line-height: 1.04;
+      letter-spacing: -.045em;
+      font-weight: 650;
+    }
+
+    h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .intro-text {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .intro-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .intro-meta a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .intro-meta a:hover { text-decoration: underline; }
+
+    .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 25px;
+      padding: 9px 15px;
+      border: 1px solid rgba(139, 215, 255, .35);
+      border-radius: 7px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: .83rem;
+      font-weight: 650;
+      transition: background .2s ease;
+    }
+
+    .download-link:hover {
+      background: rgba(139, 215, 255, .08);
+    }
+
+    /* MAIN */
+
+    main { padding: 52px 0 85px; }
+
+    .cv-section {
+      margin-bottom: 54px;
+      scroll-margin-top: 100px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 23px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 1.12rem;
+      font-weight: 650;
+      letter-spacing: .02em;
+    }
+
+    .section-index {
+      color: var(--muted);
+      font-size: .75rem;
+      letter-spacing: .1em;
+    }
+
+    /* TIMELINE */
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 0;
+      padding-left: 25px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 9px;
+      bottom: 10px;
+      left: 5px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 27px 20px;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: -24px;
+      width: 9px;
+      height: 9px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      background: var(--bg);
+    }
+
+    .timeline-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 5px 18px;
+    }
+
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+
+    .date {
+      color: var(--accent);
+      font-size: .82rem;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .institution {
+      margin: 5px 0 10px;
+      color: var(--muted);
+      font-size: .87rem;
+    }
+
+    .timeline-item p.description {
+      margin: 0;
+      max-width: 900px;
+      color: #c4cee0;
+      font-size: .89rem;
+    }
+
+    .timeline-item ul {
+      margin: 9px 0 0;
+      padding-left: 18px;
+      color: #c4cee0;
+      font-size: .88rem;
+    }
+
+    .timeline-item li { margin: 4px 0; }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .skill-card {
+      padding: 21px 23px;
+      background: linear-gradient(135deg, rgba(16, 26, 44, .96), rgba(13, 22, 38, .82));
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .skill-card h3 {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: .91rem;
+      font-weight: 650;
+    }
+
+    .skill-card p {
+      margin: 0;
+      color: #c4cee0;
+      font-size: .87rem;
+    }
+
+    /* PROJECTS */
+
+    .project-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .project {
+      padding: 20px 23px;
+      background: rgba(16, 26, 44, .72);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+    }
+
+    .project h3 {
+      margin: 0 0 6px;
+      font-size: .97rem;
+      font-weight: 650;
+    }
+
+    .project p {
+      margin: 0;
+      color: #c4cee0;
+      font-size: .88rem;
+    }
+
+    /* PUBLICATIONS */
+
+    .publication-group {
+      margin-bottom: 27px;
+    }
+
+    .publication-group h3 {
+      margin: 0 0 13px;
+      color: var(--accent);
+      font-size: .9rem;
+      font-weight: 650;
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .publication-item {
+      padding: 15px 19px;
+      border-left: 2px solid rgba(139, 215, 255, .5);
+      background: rgba(16, 26, 44, .58);
+    }
+
+    .publication-item p {
+      margin: 0;
+      color: #c4cee0;
+      font-size: .86rem;
+    }
+
+    .publication-item strong {
+      color: var(--ink);
+      font-weight: 650;
+    }
+
+    .publication-item a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .publication-item a:hover { text-decoration: underline; }
+
+    .more-publications {
+      display: inline-block;
+      margin-top: 9px;
+      color: var(--accent);
+      font-size: .86rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .more-publications:hover { text-decoration: underline; }
+
+    /* CONFERENCES */
+
+    .conference-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .conference {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 15px;
+      padding: 14px 18px;
+      background: rgba(16, 26, 44, .58);
+      border: 1px solid var(--line);
+      border-radius: 9px;
+    }
+
+    .conference strong {
+      font-size: .9rem;
+      font-weight: 650;
+    }
+
+    .conference span {
+      color: var(--muted);
+      font-size: .82rem;
+      text-align: right;
+    }
+
+    /* FOOTER */
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px 25px;
+      padding-top: 22px;
+      padding-bottom: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .footer-email {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer-email:hover { color: var(--ink); }
+
+    /* LANGUAGE */
+
+    [data-fr] { display: none; }
+
+    body.fr [data-en] { display: none; }
+    body.fr [data-fr] { display: initial; }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, var(--max)); }
+
+      .nav {
+        min-height: 68px;
+        gap: 12px;
+      }
+
+      .links { gap: 13px; }
+      .links a { font-size: .78rem; }
+      .brand { font-size: .82rem; }
+
+      .page-intro { padding: 62px 0 38px; }
+
+      .skills-grid { grid-template-columns: 1fr; }
+
+      .timeline-top {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .conference {
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .conference span { text-align: left; }
+
+      footer { font-size: .78rem; }
+    }
+
+    @media (max-width: 480px) {
+      .nav {
+        align-items: flex-start;
+        padding: 16px 0;
+      }
+
+      .links { gap: 9px 12px; }
+      .links a { font-size: .73rem; }
+
+      .timeline { padding-left: 19px; }
+      .timeline-item { padding-left: 16px; }
+      .timeline-item::before { left: -18px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html">PIERRE LARUE</a>
+
+      <nav class="links" aria-label="Main navigation">
+        <a href="index.html#about"><span data-en>Profile</span><span data-fr>Profil</span></a>
+        <a href="Publications.html"><span data-en>Publications</span><span data-fr>Publications</span></a>
+        <a href="CV.html" class="active">CV</a>
+        <button class="lang" id="langToggle" type="button" aria-label="Switch language">FR</button>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- INTRO -->
+
+  <section class="page-intro">
+    <div class="wrap">
+
+      <h1>
+        <span data-en>Curriculum vitae</em></span>
+        <span data-fr>Curriculum vitae</em></span>
+      </h1>
+
+      <p class="intro-text">
+        <span data-en>
+          Astrophysicist specialising in exoplanet detection around active M dwarfs,
+          with experience in high-resolution spectroscopy, radial-velocity analysis,
+          scientific computing and interdisciplinary research.
+        </span>
+        <span data-fr>
+          Astrophysicien spécialisé dans la détection d’exoplanètes autour de naines M
+          actives, avec une expérience en spectroscopie à haute résolution, analyse
+          des vitesses radiales, calcul scientifique et recherche interdisciplinaire.
+        </span>
+      </p>
+
+      <div class="intro-meta">
+        <span>Grenoble, France</span>
+        <a href="mailto:pierrelarue.contact@gmail.com">pierrelarue.contact@gmail.com</a>
+      </div>
+
+      
+      <a class="download-link" href="Pierre_LARUE_CV.pdf" target="_blank">
+        <span data-en>Download PDF CV ↗</span>
+        <span data-fr>Télécharger le CV PDF ↗</span>
+      </a>
+      
+
+    </div>
+  </section>
+
+
+  <main class="wrap">
+
+
+    <!-- EDUCATION -->
+
+    <section class="cv-section" id="education">
+
+      <div class="section-heading">
+        <h2><span data-en>Education</span><span data-fr>Formation</span></h2>
+        <span class="section-index">01</span>
+      </div>
+
+      <div class="timeline">
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>Ph.D. in Astrophysics</h3>
+            <span class="date">Oct 2022 – Oct 2025</span>
+          </div>
+          <p class="institution">Université Grenoble Alpes — Grenoble, France</p>
+          <p class="description">
+            <span data-en>
+              Search for exoplanets by radial velocity around active M dwarfs:
+              chromaticity of the stellar activity signal and mitigation strategies.
+            </span>
+            <span data-fr>
+              Recherche d’exoplanètes par vitesses radiales autour de naines M actives :
+              chromaticité du signal d’activité stellaire et stratégies de correction.
+            </span>
+          </p>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>Master's Degree in Astrophysics</h3>
+            <span class="date">Sep 2021 – Jul 2022</span>
+          </div>
+          <p class="institution">Université Grenoble Alpes — Grenoble, France</p>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>First year of Master's studies in Fundamental Physics</h3>
+            <span class="date">Sep 2020 – Jul 2021</span>
+          </div>
+          <p class="institution">Université Grenoble Alpes — Grenoble, France</p>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>B.S. in Physics</h3>
+            <span class="date">Sep 2019 – Jul 2020</span>
+          </div>
+          <p class="institution">Université Grenoble Alpes — Grenoble, France</p>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>University Technology Diploma (DUT) in Physical Measurements</h3>
+            <span class="date">Sep 2017 – Jul 2019</span>
+          </div>
+          <p class="institution">Université Grenoble Alpes — Grenoble, France</p>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- RESEARCH EXPERIENCE -->
+
+    <section class="cv-section" id="experience">
+
+      <div class="section-heading">
+        <h2><span data-en>Research & professional experience</span><span data-fr>Expériences scientifiques et professionnelles</span></h2>
+        <span class="section-index">02</span>
+      </div>
+
+      <div class="timeline">
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>
+              <span data-en>Volunteer Researcher in Ecology</span>
+              <span data-fr>Chercheur bénévole en écologie</span>
+            </h3>
+            <span class="date">Mar 2026 – Jun 2026</span>
+          </div>
+          <p class="institution">
+            La Selva Biological Station, Organization for Tropical Studies (OTS)
+            — Sarapiquí, Costa Rica
+          </p>
+          <ul>
+            <li>
+              <span data-en>
+                Spatial and statistical analysis of monkey and frog species using
+                R, QGIS and QField, from field data acquisition to scientific publication.
+              </span>
+              <span data-fr>
+                Analyses spatiales et statistiques de différentes espèces de singes
+                et de grenouilles avec R, QGIS et QField, de l'acquisition des données
+                sur le terrain à la publication scientifique.
+              </span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>
+              <span data-en>Ph.D. Researcher in Astrophysics — Stellar activity and exoplanets around M dwarfs</span>
+              <span data-fr>Doctorant en astrophysique — Activité stellaire et exoplanètes autour des naines M</span>
+            </h3>
+            <span class="date">Oct 2022 – Oct 2025</span>
+          </div>
+          <p class="institution">
+            Institut de Planétologie et d’Astrophysique de Grenoble (IPAG),
+            Université Grenoble Alpes — Grenoble, France
+          </p>
+          <ul>
+            <li>
+              <span data-en>
+                Conducted doctoral research on the detection of exoplanets using
+                radial velocities around active M dwarfs in the solar neighbourhood.
+              </span>
+              <span data-fr>
+                Recherche doctorale sur la détection d’exoplanètes par vitesses radiales
+                autour de naines M actives du voisinage solaire.
+              </span>
+            </li>
+            <li>
+              <span data-en>
+                Contributed to international observing and research collaborations
+                involving NIRPS, HARPS, SPIRou and SOPHIE.
+              </span>
+              <span data-fr>
+                Participation à des collaborations internationales d'observation et
+                de recherche impliquant NIRPS, HARPS, SPIRou et SOPHIE.
+              </span>
+            </li>
+            <li>
+              <span data-en>
+                Developed and applied advanced radial-velocity analysis methods:
+                Gaussian Processes, MCMC, Nested Sampling and genetic algorithms;
+                and tools including LBL and FENRIR.
+              </span>
+              <span data-fr>
+                Développement et application de méthodes avancées d'analyse des vitesses
+                radiales : processus gaussiens, MCMC, Nested Sampling et algorithmes
+                génétiques ; utilisation des outils LBL et FENRIR.
+              </span>
+            </li>
+            <li>
+              <span data-en>
+                Developed Python and Bash methods for scientific analysis and
+                data-reduction pipelines.
+              </span>
+              <span data-fr>
+                Développement de méthodes Python et Bash pour l'analyse scientifique
+                et les pipelines de réduction de données.
+              </span>
+            </li>
+            <li>
+              <span data-en>
+                Participated in observing campaigns at the Observatoire de
+                Haute-Provence (France) and La Silla Observatory (Chile).
+              </span>
+              <span data-fr>
+                Participation à des campagnes d'observation à l'Observatoire de
+                Haute-Provence (France) et à l'observatoire de La Silla (Chili).
+              </span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>
+              <span data-en>Undergraduate Teaching Assistant — Physics</span>
+              <span data-fr>Moniteur d'enseignement — Physique</span>
+            </h3>
+            <span class="date">Oct 2022 – Jun 2023</span>
+          </div>
+          <p class="institution">Université Grenoble Alpes — Grenoble, France</p>
+          <ul>
+            <li>
+              <span data-en>
+                Led lectures, tutorials and laboratory sessions in geometrical optics
+                and Newtonian mechanics.
+              </span>
+              <span data-fr>
+                Encadrement de cours, travaux dirigés et travaux pratiques en optique
+                géométrique et mécanique newtonienne.
+              </span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>
+              <span data-en>Research Intern — Gravitational-wave physics for the Einstein Telescope</span>
+              <span data-fr>Stage de recherche — Physique des ondes gravitationnelles pour l'Einstein Telescope</span>
+            </h3>
+            <span class="date">Mar 2022 – Jun 2022</span>
+          </div>
+          <p class="institution">
+            Laboratoire d’Annecy de Physique des Particules (LAPP) — Annecy, France
+          </p>
+          <ul>
+            <li>
+              <span data-en>
+                Developed Python and Bash code to simulate black-hole and neutron-star
+                mergers and analyse gravitational-wave detector data.
+              </span>
+              <span data-fr>
+                Développement de code Python et Bash pour simuler des fusions de trous
+                noirs et d'étoiles à neutrons et analyser les données de détecteurs
+                d'ondes gravitationnelles.
+              </span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>
+              <span data-en>Research Intern — Particle physics and neutron-to-hidden-neutron oscillations</span>
+              <span data-fr>Stage de recherche — Physique des particules et oscillations neutron-neutron caché</span>
+            </h3>
+            <span class="date">Jun 2021 – Jul 2021</span>
+          </div>
+          <p class="institution">
+            Laboratoire de Physique Subatomique et de Cosmologie (LPSC)
+            & Institut Laue Langevin (ILL) — Grenoble, France
+          </p>
+          <ul>
+            <li>
+              <span data-en>
+                Performed theoretical calculations and Python simulations in quantum mechanics.
+              </span>
+              <span data-fr>
+                Réalisation de calculs théoriques et de simulations Python en mécanique quantique.
+              </span>
+            </li>
+            <li>
+              <span data-en>
+                Contributed to the design, setup and data analysis of an experiment
+                involving ultra-cold neutrons at the ILL facility.
+              </span>
+              <span data-fr>
+                Participation à la conception, à la mise en place et à l'analyse
+                des données d'une expérience utilisant des neutrons ultrafroids à l'ILL.
+              </span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>R&D Technician</h3>
+            <span class="date">Sep 2018 – Jul 2019</span>
+          </div>
+          <p class="institution">Becton, Dickinson and Company — Pont-de-Claix, France</p>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- TECHNICAL SKILLS -->
+
+    <section class="cv-section" id="skills">
+
+      <div class="section-heading">
+        <h2><span data-en>Technical expertise</span><span data-fr>Compétences techniques</span></h2>
+        <span class="section-index">03</span>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h3><span data-en>Programming & scientific computing</span><span data-fr>Programmation et calcul scientifique</span></h3>
+          <p>Python · Bash · Data-reduction pipelines · Scientific data analysis</p>
+        </div>
+
+        <div class="skill-card">
+          <h3><span data-en>Numerical methods</span><span data-fr>Méthodes numériques</span></h3>
+          <p>Gaussian Processes · MCMC · Nested Sampling · Genetic algorithms</p>
+        </div>
+
+        <div class="skill-card">
+          <h3><span data-en>Radial-velocity analysis</span><span data-fr>Analyse des vitesses radiales</span></h3>
+          <p>Line-by-line (LBL) · FENRIR · Activity modelling · Precision radial velocities</p>
+        </div>
+
+        <div class="skill-card">
+          <h3><span data-en>Observational astronomy</span><span data-fr>Astronomie observationnelle</span></h3>
+          <p>
+            High-resolution optical and near-infrared spectroscopy ·
+            Spectroscopic data · Observing campaigns
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3><span data-en>Instruments</span><span data-fr>Instruments</span></h3>
+          <p>NIRPS · HARPS · SPIRou · SOPHIE</p>
+        </div>
+
+        <div class="skill-card">
+          <h3><span data-en>Ecological field research</span><span data-fr>Recherche de terrain en écologie</span></h3>
+          <p>R · QGIS · QField · Spatial analysis · Statistical analysis</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- RESEARCH PROJECTS -->
+
+    <section class="cv-section" id="projects">
+
+      <div class="section-heading">
+        <h2><span data-en>Research projects</span><span data-fr>Projets de recherche</span></h2>
+        <span class="section-index">04</span>
+      </div>
+
+      <div class="project-list">
+
+        <article class="project">
+          <h3>ANR ORVET</h3>
+          <p>
+            <span data-en>
+              Contributed to the development of a research project focused on
+              optimising radial-velocity extraction. Awarded funding: €567,814.
+            </span>
+            <span data-fr>
+              Contribution au développement d'un projet de recherche consacré à
+              l'optimisation de l'extraction des vitesses radiales.
+              Financement obtenu : 567 814 €.
+            </span>
+          </p>
+        </article>
+
+        <article class="project">
+          <h3>CDP Origin of Life — PEPR Origins</h3>
+          <p>
+            <span data-en>
+              Contributed to the interdisciplinary research programme at
+              Université Grenoble Alpes associated with PEPR Origins.
+            </span>
+            <span data-fr>
+              Contribution au programme de recherche interdisciplinaire de
+              l'Université Grenoble Alpes associé au PEPR Origins.
+            </span>
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- PUBLICATIONS -->
+
+    <section class="cv-section" id="publications">
+
+      <div class="section-heading">
+        <h2><span data-en>Selected publications</span><span data-fr>Publications sélectionnées</span></h2>
+        <span class="section-index">05</span>
+      </div>
+
+      <div class="publication-group">
+        <h3><span data-en>First-author publications</span><span data-fr>Publications en premier auteur</span></h3>
+
+        <div class="publication-list">
+
+          <article class="publication-item">
+            <p>
+              <strong>Larue & Roux-Fouillet (2026, under review).</strong>
+              “Widespread occurrence of Dendrobates auratus at La Selva Biological
+              Station reveals contrasting habitat associations.”
+              <em>Global Ecology and Conservation.</em>
+            </p>
+          </article>
+
+          <article class="publication-item">
+            <p>
+              <strong>Larue et al. (2026, accepted).</strong>
+              “Revisiting Gl 581 with NIRPS and HARPS: Stellar activity investigation,
+              updated orbital parameters, and improved planet detection limits.”
+              <em>Astronomy & Astrophysics.</em>
+            </p>
+          </article>
+
+          <article class="publication-item">
+            <p>
+              <strong>Larue (2025).</strong>
+              “Search for exoplanets by radial velocity around active M dwarfs:
+              chromaticity of the stellar activity signal and mitigation strategies.”
+              Ph.D. dissertation, Université Grenoble Alpes.
+              <a href="https://theses.hal.science/tel-05661995v1" target="_blank" rel="noopener">HAL</a>.
+            </p>
+          </article>
+
+          <article class="publication-item">
+            <p>
+              <strong>Larue et al. (2025).</strong>
+              “Chromaticity of stellar activity in radial velocities — Anti-correlated
+              families of lines on the M dwarf EV Lac with SPIRou and SOPHIE.”
+              <em>Astronomy & Astrophysics.</em>
+              <a href="https://doi.org/10.1051/0004-6361/202554963" target="_blank" rel="noopener">DOI</a>.
+            </p>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="publication-group">
+        <h3><span data-en>Selected co-authored publications</span><span data-fr>Publications en collaboration (sélection)</span></h3>
+
+        <div class="publication-list">
+
+          <article class="publication-item">
+            <p>
+              <strong>Stefanov et al. (2026, submitted).</strong>
+              “Temperature responses of spectral lines as an activity tracer in radial velocities.”
+              <em>Astronomy & Astrophysics.</em>
+            </p>
+          </article>
+
+          <article class="publication-item">
+            <p>
+              <strong>Cantalloube et al. (2025).</strong>
+              “SF2A Environmental Transition Commission — Summary of the 2025 Workshop.”
+            </p>
+          </article>
+
+          <article class="publication-item">
+            <p>
+              <strong>Charpentier et al. (2025).</strong>
+              “SPIRou detects two planets around the nearby M4.5V star GJ 4274.”
+            </p>
+          </article>
+
+          <article class="publication-item">
+            <p>
+              <strong>Charpentier et al. (2025).</strong>
+              “A reliable activity proxy in SPIRou spectra of M dwarfs using machine learning.”
+              <em>Astronomy & Astrophysics.</em>
+            </p>
+          </article>
+
+          <article class="publication-item">
+            <p>
+              <strong>Pia Cortes-Zuleta et al. (2024).</strong>
+              “Gl 725A b: A potential super-Earth detected with SOPHIE and SPIRou
+              in an M dwarf binary system at 3.5 pc.”
+              <em>Astronomy & Astrophysics.</em>
+            </p>
+          </article>
+
+          <article class="publication-item">
+            <p>
+              <strong>Artigau et al. (2024).</strong>
+              “Measuring Sub-Kelvin Variations in Stellar Temperature with
+              High-resolution Spectroscopy.”
+              <em>Astronomy & Astrophysics.</em>
+            </p>
+          </article>
+
+          <article class="publication-item">
+            <p>
+              <strong>Ban et al. (2023).</strong>
+              “Search for Neutron-to-Hidden-Neutron Oscillations in an Ultracold
+              Neutron Beam.”
+              <em>Physical Review Letters.</em>
+            </p>
+          </article>
+
+        </div>
+
+        <a class="more-publications" href="Publications.html">
+          <span data-en>View dedicated publication page ↗</span>
+          <span data-fr>Voir la page dédiée aux publications ↗</span>
+        </a>
+
+        <p class="institution">
+          <span data-en>Co-author of 14 additional consortium papers.</span>
+          <span data-fr>Co-auteur de 14 autres publications au sein de collaborations.</span>
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- CONFERENCES -->
+
+    <section class="cv-section" id="conferences">
+
+      <div class="section-heading">
+        <h2><span data-en>Conference presentations</span><span data-fr>Présentations en conférences</span></h2>
+        <span class="section-index">06</span>
+      </div>
+
+      <div class="conference-list">
+
+        <div class="conference">
+          <strong>EPRV 6</strong>
+          <span>Porto, Portugal · Jun 2025 · Poster and plenary-session presentation</span>
+        </div>
+
+        <div class="conference">
+          <strong>Exoplanets 5</strong>
+          <span>Leiden, Netherlands · Jun 2024 · Poster and parallel-session presentation</span>
+        </div>
+
+        <div class="conference">
+          <strong>SF2A</strong>
+          <span>Marseille, France · Jun 2024 · Parallel-session presentation</span>
+        </div>
+
+        <div class="conference">
+          <strong>Exosystème 4</strong>
+          <span>Lyon, France · Jan 2024 · Plenary-session presentation</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="wrap" id="contact">
+    <span>© <span id="year"></span> Pierre LARUE</span>
+
+    <a href="mailto:pierrelarue.contact@gmail.com" class="footer-email">
+      pierrelarue.contact@gmail.com
+    </a>
+
+    <span>
+      <span data-en>Exoplanets · Stellar Activity · Radial Velocities</span>
+      <span data-fr>Exoplanètes · Activité Stellaire · Vitesses Radiales</span>
+    </span>
+  </footer>
+
+
+  <!-- SCRIPTS -->
+
+  <script>
+    const toggle = document.getElementById('langToggle');
+
+    toggle.addEventListener('click', () => {
+      const isFrench = document.body.classList.toggle('fr');
+      document.documentElement.lang = isFrench ? 'fr' : 'en';
+      toggle.textContent = isFrench ? 'EN' : 'FR';
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Scientific publications by Pierre Larue on exoplanets, radial velocities and stellar activity in M dwarfs.">
+  <title>Publications | Pierre Larue</title>
+
+  <style>
+    :root {
+      --bg: #080d19;
+      --panel: #101a2c;
+      --ink: #edf3ff;
+      --muted: #a8b6ce;
+      --line: rgba(190, 211, 245, .15);
+      --accent: #8bd7ff;
+      --accent2: #b9a6ff;
+      --warm: #f0c78b;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 15% 0%, rgba(69, 112, 164, .13), transparent 36rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 13, 25, .88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: .98rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      white-space: nowrap;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 26px;
+    }
+
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .88rem;
+      transition: color .2s ease;
+    }
+
+    .links a:hover,
+    .links a.active { color: var(--accent); }
+
+    .lang {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font: inherit;
+      font-size: .78rem;
+      cursor: pointer;
+    }
+
+    /* INTRO */
+    .page-intro {
+      padding: 88px 0 52px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 850px;
+      font-size: clamp(2.5rem, 6vw, 4.6rem);
+      line-height: 1.04;
+      letter-spacing: -.045em;
+      font-weight: 650;
+    }
+
+    h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .intro-text {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* PUBLICATION LIST */
+    main { padding: 54px 0 88px; }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    .section-heading span {
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .pub-group-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      margin: 34px 0 8px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .pub-group-heading h2 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    .pub-group-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .publication {
+      position: relative;
+      display: grid;
+      grid-template-columns: 115px minmax(0, 1fr);
+      gap: 26px;
+      padding: 30px 32px;
+      background: linear-gradient(135deg, rgba(16, 26, 44, .96), rgba(13, 22, 38, .82));
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      transition: border-color .2s ease, transform .2s ease;
+    }
+
+    .publication:hover {
+      border-color: rgba(139, 215, 255, .38);
+      transform: translateY(-2px);
+    }
+
+    .pub-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 9px;
+      padding-top: 3px;
+    }
+
+    .pub-year {
+      color: var(--accent);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .pub-type {
+      color: var(--muted);
+      font-size: .72rem;
+      line-height: 1.4;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 3px;
+      padding: 5px 9px;
+      border: 1px solid rgba(240, 199, 139, .28);
+      border-radius: 999px;
+      color: var(--warm);
+      font-size: .7rem;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .status::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .pub-content h3 a {
+      color: inherit;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .pub-content h3 a:hover { color: var(--accent); }
+
+    .verification-note {
+      margin: 12px 0 0;
+      padding-left: 12px;
+      border-left: 2px solid rgba(240, 199, 139, .55);
+      color: var(--warm);
+      font-size: .82rem;
+    }
+
+    .pub-content h3 {
+      margin: 0 0 11px;
+      max-width: 850px;
+      font-size: clamp(1.12rem, 2vw, 1.42rem);
+      line-height: 1.35;
+      font-weight: 620;
+      letter-spacing: -.015em;
+    }
+
+    .authors {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .authors strong {
+      color: var(--ink);
+      font-weight: 650;
+    }
+
+    .journal {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: .82rem;
+      font-style: italic;
+    }
+
+    .description {
+      max-width: 850px;
+      margin: 0;
+      color: #c4cee0;
+      font-size: .92rem;
+    }
+
+    .keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 19px;
+    }
+
+    .keywords span {
+      padding: 4px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: .72rem;
+    }
+
+    .pub-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 21px;
+    }
+
+    .pub-actions a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: .84rem;
+      font-weight: 650;
+    }
+
+    .pub-actions a:hover { text-decoration: underline; }
+
+    .pub-actions a::after {
+      content: " ↗";
+      font-size: .85em;
+    }
+
+    .pub-actions .muted-link { color: var(--muted); }
+
+    /* FOOTER */
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px 25px;
+      padding-top: 22px;
+      padding-bottom: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .footer-email {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer-email:hover { color: var(--ink); }
+
+    [data-fr] { display: none; }
+    body.fr [data-en] { display: none; }
+    body.fr [data-fr] { display: initial; }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, var(--max)); }
+      .nav { min-height: 68px; gap: 12px; }
+      .links { gap: 13px; }
+      .links a { font-size: .78rem; }
+      .brand { font-size: .82rem; }
+      .page-intro { padding: 66px 0 40px; }
+      .publication {
+        grid-template-columns: 1fr;
+        gap: 13px;
+        padding: 24px 22px;
+      }
+      .pub-meta {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .pub-year { font-size: 1rem; }
+      .status { margin-top: 0; }
+      footer { font-size: .78rem; }
+    }
+
+    @media (max-width: 480px) {
+      .nav { align-items: flex-start; padding: 16px 0; }
+      .links { gap: 9px 12px; }
+      .links a { font-size: .73rem; }
+      .publication { padding: 21px 18px; }
+      .pub-actions { gap: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html">PIERRE LARUE</a>
+
+      <nav class="links" aria-label="Main navigation">
+        <a href="index.html#about"><span data-en>Profile</span><span data-fr>Profil</span></a>
+        <a href="index.html#experience"><span data-en>Experience</span><span data-fr>Expérience</span></a>
+        <a href="Publications.html" class="active"><span data-en>Publications</span><span data-fr>Publications</span></a>
+        <a href="CV.html">CV</a>
+        <button class="lang" id="langToggle" type="button" aria-label="Switch language">FR</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-intro">
+    <div class="wrap">
+      <p class="eyebrow"><span data-en>Scientific work</span><span data-fr>Travaux scientifiques</span></p>
+      <h1><span data-en>Selected <em>publications.</em></span><span data-fr>Publications <em>sélectionnées.</em></span></h1>
+      <p class="intro-text">
+        <span data-en>My research focuses on exoplanet detection around M dwarfs, with particular emphasis on radial-velocity measurements and the characterisation and mitigation of stellar activity.</span>
+        <span data-fr>Mes recherches portent sur la détection d’exoplanètes autour des naines M, en particulier par la méthode des vitesses radiales, ainsi que sur la caractérisation et la correction de l’activité stellaire.</span>
+      </p>
+    </div>
+  </section>
+
+  <main class="wrap">
+      <!-- SELECTED CO-AUTHORED PUBLICATIONS -->
+      <div class="pub-group-heading">
+        <h2><span data-en>First-author publications</span><span data-fr>Publications en premier auteur</span></h2>
+      </div>
+
+    <div class="publication-list">
+
+      <!-- GL 581 PAPER -->
+      <article class="publication">
+        <div class="pub-meta">
+          <span class="pub-year">2026</span>
+          <span class="pub-type">Astronomy &amp; Astrophysics</span>
+          <span class="status"><span data-en>Accepted</span><span data-fr>Accepté</span></span>
+        </div>
+        <div class="pub-content">
+          <h3>Revisiting Gl 581 with NIRPS and HARPS: Stellar activity investigation, updated orbital parameters, and improved planet detection limits</h3>
+          <p class="authors"><strong>P. Larue</strong> <span data-en>et al.</span><span data-fr>et al.</span></p>
+          <p class="journal"><span data-en>Astronomy &amp; Astrophysics · Accepted 3 November 2026 · In press</span><span data-fr>Astronomy &amp; Astrophysics · Accepté le 3 novembre 2026 · À paraître</span></p>
+          <p class="description">
+            <span data-en>A joint analysis of NIRPS and HARPS observations of Gl 581, investigating stellar activity, revisiting the system’s orbital parameters and improving the detection limits for additional planets.</span>
+            <span data-fr>Une analyse conjointe des observations de Gl 581 obtenues avec NIRPS et HARPS, consacrée à l’étude de l’activité stellaire, à la révision des paramètres orbitaux du système et à l’amélioration des limites de détection de planètes supplémentaires.</span>
+          </p>
+          <div class="keywords">
+            <span>Gl 581</span><span>NIRPS</span><span>HARPS</span><span>Planet detection limits</span>
+          </div>
+          <div class="pub-actions">
+            <a class="muted-link" href="mailto:"><span data-en>Manuscript available on request</span><span data-fr>Manuscrit disponible sur demande</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PhD THESIS -->
+      <article class="publication">
+        <div class="pub-meta">
+          <span class="pub-year">2025</span>
+          <span class="pub-type"><span data-en>PhD thesis</span><span data-fr>Thèse de doctorat</span></span>
+        </div>
+        <div class="pub-content">
+          <h3>Search for exoplanets by radial velocity around active M dwarfs: chromaticity of the stellar activity signal and mitigation strategies</h3>
+          <p class="authors"><strong>Pierre Larue</strong></p>
+          <p class="journal"><span data-en>Université Grenoble Alpes · Institut de Planétologie et d’Astrophysique de Grenoble (IPAG)</span><span data-fr>Université Grenoble Alpes · Institut de Planétologie et d’Astrophysique de Grenoble (IPAG)</span></p>
+          <p class="description">
+            <span data-en>Doctoral research on the impact of stellar activity on radial-velocity exoplanet searches around active M dwarfs, using high-resolution optical and near-infrared spectroscopy and developing strategies to characterise and mitigate activity signals.</span>
+            <span data-fr>Travaux doctoraux consacrés à l’impact de l’activité stellaire sur la recherche d’exoplanètes par vitesses radiales autour de naines M actives, à partir de spectroscopie à haute résolution dans le visible et le proche infrarouge, et au développement de méthodes de caractérisation et de correction de ces signaux.</span>
+          </p>
+          <div class="keywords">
+            <span>Radial velocities</span><span>M dwarfs</span><span>Stellar activity</span><span>Optical & NIR spectroscopy</span>
+          </div>
+          <div class="pub-actions">
+            <a href="https://theses.hal.science/search/index/?q=%22Pierre%20Larue%22" target="_blank" rel="noopener"><span data-en>Find thesis on HAL</span><span data-fr>Retrouver la thèse sur HAL</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- EV LAC PAPER -->
+      <article class="publication">
+        <div class="pub-meta">
+          <span class="pub-year">2025</span>
+          <span class="pub-type">Astronomy &amp; Astrophysics</span>
+        </div>
+        <div class="pub-content">
+          <h3>Chromaticity of stellar activity in radial velocities: Anti-correlated families of lines on the M dwarf EV Lac with SPIRou and SOPHIE</h3>
+          <p class="authors"><strong>P. Larue</strong>, X. Delfosse, A. Carmona, N. Meunier, É. Artigau, S. Bellotti, P. Charpentier, C. Moutou, J.-F. Donati, I. Boisse, T. Forveille, et al.</p>
+          <p class="journal">A&amp;A, 701, A216 (2025) · Published 17 September 2025 · DOI: 10.1051/0004-6361/202554963</p>
+          <p class="description">
+            <span data-en>Using simultaneous optical and near-infrared radial velocities from SOPHIE and SPIRou, this study investigates the wavelength dependence of the activity signal in EV Lac. It identifies two families of spectral lines with anti-correlated radial-velocity variations, linked to different spot-to-photosphere contrasts.</span>
+            <span data-fr>À partir de mesures simultanées de vitesses radiales dans le visible et le proche infrarouge avec SOPHIE et SPIRou, cette étude analyse la dépendance en longueur d’onde du signal d’activité d’EV Lac. Elle met en évidence deux familles de raies spectrales présentant des variations de vitesses radiales anticorrélées, liées à différents contrastes entre taches et photosphère.</span>
+          </p>
+          <div class="keywords">
+            <span>EV Lac</span><span>Chromaticity</span><span>Starspots</span><span>Line-by-line analysis</span>
+          </div>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.1051/0004-6361/202554963" target="_blank" rel="noopener">A&amp;A article</a>
+            <a href="https://arxiv.org/abs/2509.17911" target="_blank" rel="noopener">arXiv preprint</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- SELECTED CO-AUTHORED PUBLICATIONS -->
+      <div class="pub-group-heading">
+        <h2><span data-en>Selected co-authored publications</span><span data-fr>Publications sélectionnées en collaboration</span></h2>
+      </div>
+
+      <!-- STEFANOV: submitted manuscript, no public record located -->
+      <article class="publication">
+        <div class="pub-meta">
+          <span class="pub-year">2026</span>
+          <span class="pub-type">Astronomy &amp; Astrophysics</span>
+          <span class="status"><span data-en>Submitted</span><span data-fr>Soumis</span></span>
+        </div>
+        <div class="pub-content">
+          <h3>Temperature responses of spectral lines as an activity tracer in radial velocities</h3>
+          <p class="authors">Stefanov et al.</p>
+          <p class="journal">Astronomy &amp; Astrophysics · 2026</p>
+        </div>
+      </article>
+
+      <!-- SF2A WORKSHOP SUMMARY -->
+      <article class="publication">
+        <div class="pub-meta">
+          <span class="pub-year">2026</span>
+          <span class="pub-type"><span data-en>Workshop summary</span><span data-fr>Synthèse d’atelier</span></span>
+        </div>
+        <div class="pub-content">
+          <h3><a href="https://arxiv.org/abs/2602.06564" target="_blank" rel="noopener">SF2A Environmental Transition Commission: Summary of the 2025 Workshop</a></h3>
+          <p class="authors">Faustine Cantalloube, Jack Berat, Naïs Fargette, <strong>Pierre Larue</strong>, N. Pourré, Sarah E. Anderson, Julien Milli, Jean-François Gonzalez, Olivier Berné, Didier Barret, Angèle Mouinié, Clarisse Picard, Karine Dassas, Jürgen Knödlseder, David Redon.</p>
+          <p class="journal">SF2A 2025 proceedings · arXiv:2602.06564 · 2026</p>
+          <div class="pub-actions">
+            <a href="https://arxiv.org/abs/2602.06564" target="_blank" rel="noopener">arXiv record</a>
+            <a href="https://sf2a.eu/proceedings/2025/2025sf2a.conf.361C.pdf" target="_blank" rel="noopener">SF2A proceedings PDF</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- GJ 4274 -->
+      <article class="publication">
+        <div class="pub-meta">
+          <span class="pub-year">2026</span>
+          <span class="pub-type">Astronomy &amp; Astrophysics</span>
+        </div>
+        <div class="pub-content">
+          <h3><a href="https://ui.adsabs.harvard.edu/abs/2026A%26A...705A.243C/abstract" target="_blank" rel="noopener">SPIRou detects two planets around the nearby M4.5V star GJ 4274</a></h3>
+          <p class="authors">Paul Charpentier, Claire Moutou, Jean-François Donati, <strong>Pierre Larue</strong>, Xavier Delfosse, Pía Cortés-Zuleta, Merwan Ould-Elhkim, Étienne Artigau, Charles Cadieux, Guillaume Hébrard, Alexandrine L’Heureux, Andrés Carmona, Florian Debras, Isabelle Boisse, Neil J. Cook, and the SPIRou science Consortium.</p>
+          <p class="journal">A&amp;A, 705, A243 (2026) · DOI: 10.1051/0004-6361/202557666</p>
+          <div class="pub-actions">
+            <a href="https://ui.adsabs.harvard.edu/abs/2026A%26A...705A.243C/abstract" target="_blank" rel="noopener">NASA ADS</a>
+            <a href="https://doi.org/10.1051/0004-6361/202557666" target="_blank" rel="noopener">A&amp;A article</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- SPIRou ACTIVITY PROXY -->
+      <article class="publication">
+        <div class="pub-meta">
+          <span class="pub-year">2025</span>
+          <span class="pub-type">Astronomy &amp; Astrophysics</span>
+        </div>
+        <div class="pub-content">
+          <h3><a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...701A..17C/abstract" target="_blank" rel="noopener">A reliable activity proxy in SPIRou spectra of M dwarfs using machine learning</a></h3>
+          <p class="authors">Paul Charpentier, Claire Moutou, Jean-François Donati, Paul I. Cristofari, <strong>Pierre Larue</strong>, Sandie Marion, Thea Hood, Merwan Ould-Elhkim, Étienne Artigau, Charles Cadieux, Isabelle Boisse, Andrés Carmona, Neil J. Cook, Xavier Delfosse, René Doyon, Julien Morin, and the SLS Consortium.</p>
+          <p class="journal">A&amp;A, 701, A17 (2025) · DOI: 10.1051/0004-6361/202554832</p>
+          <div class="pub-actions">
+            <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...701A..17C/abstract" target="_blank" rel="noopener">NASA ADS</a>
+            <a href="https://doi.org/10.1051/0004-6361/202554832" target="_blank" rel="noopener">A&amp;A article</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- GL 725A b -->
+      <article class="publication">
+        <div class="pub-meta">
+          <span class="pub-year">2025</span>
+          <span class="pub-type">Astronomy &amp; Astrophysics</span>
+        </div>
+        <div class="pub-content">
+          <h3><a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...693A164C/abstract" target="_blank" rel="noopener">Gl 725A b: A potential super-Earth detected with SOPHIE and SPIRou in an M dwarf binary system at 3.5 pc</a></h3>
+          <p class="authors">P. Cortés-Zuleta, I. Boisse, M. Ould-Elhkim, T. G. Wilson, <strong>P. Larue</strong>, A. Carmona, X. Delfosse, J.-F. Donati, T. Forveille, C. Moutou, A. Collier Cameron, É. Artigau, L. Acuña, L. Altinier, N. Astudillo-Defru, C. Baruteau, X. Bonfils, S. Cabrit, C. Cadieux, N. J. Cook, E. Decocq, R. F. Díaz, P. Fouqué, J. Gomes da Silva, K. Grankin, S. Grouffal, N. Hara, G. Hébrard, N. Heidari, J. H. C. Martins, E. Martioli, M. Maurice, J. Scigliuto, J. Serrano Bell, S. Sulis, A. C. Petit, and H. G. Vivien.</p>
+          <p class="journal">A&amp;A, 693, A164 (2025) · DOI: 10.1051/0004-6361/202451646</p>
+          <div class="pub-actions">
+            <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...693A164C/abstract" target="_blank" rel="noopener">NASA ADS</a>
+            <a href="https://arxiv.org/abs/2411.09506" target="_blank" rel="noopener">arXiv preprint</a>
+            <a href="https://doi.org/10.1051/0004-6361/202451646" target="_blank" rel="noopener">A&amp;A article</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- SUB-KELVIN TEMPERATURE VARIATIONS -->
+      <article class="publication">
+        <div class="pub-meta">
+          <span class="pub-year">2024</span>
+          <span class="pub-type">The Astronomical Journal</span>
+        </div>
+        <div class="pub-content">
+          <h3><a href="https://ui.adsabs.harvard.edu/abs/2024AJ....168..252A/abstract" target="_blank" rel="noopener">Measuring Sub-Kelvin Variations in Stellar Temperature with High-Resolution Spectroscopy</a></h3>
+          <p class="authors">Étienne Artigau, Charles Cadieux, Neil J. Cook, René Doyon, Laurie Dauplaise, Luc Arnold, Maya Cadieux, Jean-François Donati, Paul Cristofari, Xavier Delfosse, Pascal Fouqué, Claire Moutou, <strong>Pierre Larue</strong>, Romain Allart.</p>
+          <p class="journal">The Astronomical Journal, 168, 252 (2024) · arXiv:2409.07260</p>
+          <div class="pub-actions">
+            <a href="https://ui.adsabs.harvard.edu/abs/2024AJ....168..252A/abstract" target="_blank" rel="noopener">NASA ADS</a>
+            <a href="https://arxiv.org/abs/2409.07260" target="_blank" rel="noopener">arXiv preprint</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- NEUTRON TO HIDDEN-NEUTRON OSCILLATIONS -->
+      <article class="publication">
+        <div class="pub-meta">
+          <span class="pub-year">2023</span>
+          <span class="pub-type">Physical Review Letters</span>
+        </div>
+        <div class="pub-content">
+          <h3><a href="https://ui.adsabs.harvard.edu/abs/2023PhRvL.131s1801B/abstract" target="_blank" rel="noopener">Search for Neutron-to-Hidden-Neutron Oscillations in an Ultracold Neutron Beam</a></h3>
+          <p class="authors">G. Ban, J. Chen, T. Lefort, O. Naviliat-Cuncic, W. Saenz-Arevalo, P.-J. Chiu, B. Clément, <strong>Pierre Larue</strong>, G. Pignol, S. Roccia, M. Guigue, T. Jenke, B. Perriolat, P. Schmidt-Wellenburg.</p>
+          <p class="journal">Physical Review Letters, 131, 191801 (2023) · DOI: 10.1103/PhysRevLett.131.191801</p>
+          <div class="pub-actions">
+            <a href="https://ui.adsabs.harvard.edu/abs/2023PhRvL.131s1801B/abstract" target="_blank" rel="noopener">NASA ADS</a>
+            <a href="https://doi.org/10.1103/PhysRevLett.131.191801" target="_blank" rel="noopener">APS article</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="wrap" id="contact">
+    <span>© <span id="year"></span> Pierre LARUE</span>
+    <a href="mailto:ton.adresse@email.com" class="footer-email">ton.adresse@email.com</a>
+    <span><span data-en>Exoplanets · Stellar Activity · Radial Velocities</span><span data-fr>Exoplanètes · Activité Stellaire · Vitesses Radiales</span></span>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('langToggle');
+    toggle.addEventListener('click', () => {
+      const isFrench = document.body.classList.toggle('fr');
+      document.documentElement.lang = isFrench ? 'fr' : 'en';
+      toggle.textContent = isFrench ? 'EN' : 'FR';
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

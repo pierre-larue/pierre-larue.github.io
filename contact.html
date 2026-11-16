@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Pierre Larue — Astrophysicist specialising in exoplanets, stellar activity and radial velocities.">
+  <meta name="theme-color" content="#080d19">
+
+  <title>Contact | Pierre Larue</title>
+
+  <style>
+    :root {
+      --bg: #080d19;
+      --panel: #101a2c;
+      --panel2: #142238;
+      --ink: #edf3ff;
+      --muted: #a8b6ce;
+      --line: rgba(190, 211, 245, .15);
+      --accent: #8bd7ff;
+      --accent2: #b9a6ff;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background:
+        radial-gradient(ellipse at 15% 0%, rgba(69, 112, 164, .13), transparent 36rem),
+        radial-gradient(ellipse at 85% 75%, rgba(94, 120, 190, .10), transparent 32rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 13, 25, .88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: .98rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      white-space: nowrap;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 26px;
+    }
+
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .88rem;
+      transition: color .2s ease;
+    }
+
+    .links a:hover,
+    .links a.active {
+      color: var(--accent);
+    }
+
+    .lang {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font: inherit;
+      font-size: .78rem;
+      cursor: pointer;
+    }
+
+    /* =========================================
+       PAGE INTRO
+    ========================================= */
+
+    .page-intro {
+      padding: 105px 0 65px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 17px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 850px;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.04;
+      letter-spacing: -.05em;
+      font-weight: 650;
+    }
+
+    h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .intro-text {
+      max-width: 670px;
+      margin: 25px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    /* =========================================
+      CONTACT AREA
+    ========================================= */
+
+    main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding: 65px 0 90px;
+    }
+
+    .contact-layout {
+        display: grid;
+        grid-template-columns: 1fr 0.85fr;
+        align-items: center;
+        gap: 90px;
+    }
+
+    /* Contact card */
+
+    .contact-card {
+        position: relative;
+        overflow: hidden;
+        padding: 43px 38px;
+        background:
+            linear-gradient(145deg, rgba(20, 34, 56, .96), rgba(13, 22, 38, .92));
+        border: 1px solid rgba(139, 215, 255, .22);
+        border-radius: 14px;
+        box-shadow: 0 20px 65px rgba(0, 0, 0, .18);
+    }
+
+    .contact-card::before {
+        content: "";
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        top: -165px;
+        right: -110px;
+        border: 1px solid rgba(139, 215, 255, .13);
+        border-radius: 50%;
+        box-shadow:
+            0 0 0 30px rgba(139, 215, 255, .025),
+            0 0 0 65px rgba(139, 215, 255, .02);
+        pointer-events: none;
+    }
+
+    .contact-card h3 {
+        position: relative;
+        margin: 0 0 12px;
+        font-size: 1.65rem;
+        font-weight: 550;
+        letter-spacing: -.025em;
+    }
+
+    .contact-card p {
+        position: relative;
+        margin: 0;
+        color: var(--muted);
+        font-size: .9rem;
+    }
+
+    .email-link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        margin-top: 30px;
+        padding: 17px 19px;
+        border: 1px solid rgba(139, 215, 255, .3);
+        border-radius: 7px;
+        background: rgba(139, 215, 255, .07);
+        color: var(--accent);
+        font-size: clamp(.85rem, 1.3vw, 1rem);
+        font-weight: 600;
+        text-decoration: none;
+        transition: background .2s ease, border-color .2s ease;
+        overflow-wrap: anywhere;
+    }
+
+    .email-link:hover {
+        background: rgba(139, 215, 255, .13);
+        border-color: rgba(139, 215, 255, .6);
+        color: #d9f3ff;
+    }
+
+    .email-arrow {
+        flex-shrink: 0;
+        font-size: 1.2rem;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px 25px;
+      padding-top: 22px;
+      padding-bottom: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--ink);
+    }
+
+    /* =========================================
+       LANGUAGE
+    ========================================= */
+
+    [data-fr] {
+      display: none;
+    }
+
+    body.fr [data-en] {
+      display: none;
+    }
+
+    body.fr [data-fr] {
+      display: initial;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 850px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .page-intro {
+        padding-top: 75px;
+      }
+
+      main {
+        padding: 55px 0 75px;
+      }
+
+      .contact-card {
+        max-width: 650px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .wrap {
+        width: min(100% - 36px, var(--max));
+      }
+
+      .nav {
+        min-height: 68px;
+        gap: 12px;
+      }
+
+      .links {
+        gap: 13px;
+      }
+
+      .links a {
+        font-size: .78rem;
+      }
+
+      .brand {
+        font-size: .82rem;
+      }
+
+      .page-intro {
+        padding: 66px 0 40px;
+      }
+
+      footer {
+        font-size: .78rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav {
+        align-items: flex-start;
+        padding: 16px 0;
+      }
+
+      .links {
+        gap: 9px 12px;
+      }
+
+      .links a {
+        font-size: .73rem;
+      }
+
+      .contact-card {
+        padding: 30px 23px;
+      }
+
+      .email-link {
+        padding: 14px;
+      }
+
+      footer {
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html">PIERRE LARUE</a>
+
+      <nav class="links" aria-label="Main navigation">
+
+        <a href="index.html">
+          <span data-en>Profile</span>
+          <span data-fr>Profil</span>
+        </a>
+
+        <a href="publications.html">
+          <span data-en>Publications</span>
+          <span data-fr>Publications</span>
+        </a>
+
+        <a href="CV.html">CV</a>
+
+        <a href="contact.html" class="active" aria-current="page">
+          Contact
+        </a>
+
+        <button class="lang" id="langToggle" type="button" aria-label="Switch language">
+          FR
+        </button>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- MAIN CONTACT -->
+  <main>
+    <div class="wrap contact-layout">
+
+      <div class="contact-intro">
+        <p class="eyebrow">
+          <span data-en>Get in touch</span>
+          <span data-fr>Me contacter</span>
+        </p>
+
+        <h1>
+          <span data-en>Let's <em>connect.</em></span>
+          <span data-fr>Entrons en <em>contact.</em></span>
+        </h1>
+
+        <p class="intro-text">
+          <span data-en>
+            Whether you have a research opportunity, a collaboration in mind
+            or simply want to discuss science, feel free to get in touch.
+          </span>
+          <span data-fr>
+            Pour une opportunité de recherche, une proposition de collaboration
+            ou simplement pour échanger autour de sujets scientifiques,
+            n'hésitez pas à me contacter.
+          </span>
+        </p>
+      </div>
+
+      <div class="contact-card">
+
+        <h3>
+          <span data-en>Send me an email:</span>
+          <span data-fr>Écrivez-moi :</span>
+        </h3>
+
+        <a class="email-link" href="mailto:pierrelarue.contact@gmail.com">
+          <span>pierrelarue.contact@gmail.com</span>
+          <span class="email-arrow">↗</span>
+        </a>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="wrap">
+
+    <span>© <span id="year"></span> Pierre LARUE</span>
+
+    <a href="mailto:pierrelarue.contact@gmail.com">
+      pierrelarue.contact@gmail.com
+    </a>
+
+    <span>
+      <span data-en>Exoplanets · Stellar Activity · Radial Velocities</span>
+      <span data-fr>Exoplanètes · Activité Stellaire · Vitesses Radiales</span>
+    </span>
+
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    const toggle = document.getElementById('langToggle');
+
+    toggle.addEventListener('click', () => {
+      const isFrench = document.body.classList.toggle('fr');
+
+      document.documentElement.lang = isFrench ? 'fr' : 'en';
+      toggle.textContent = isFrench ? 'EN' : 'FR';
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
